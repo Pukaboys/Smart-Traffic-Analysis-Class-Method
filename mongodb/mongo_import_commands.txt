@@ -1,0 +1,5 @@
+mongosh smart_city_db
+db.traffic_events.countDocuments()
+db.traffic_events.find().limit(5)
+db.traffic_events.find({severity: "High"}).limit(5)
+db.traffic_events.aggregate([{ $group: { _id: "$location", total_events: { $sum: 1 } } }])
